@@ -47,6 +47,10 @@ imap ,p <para><CR></para><esc>k$a
 imap ,em <emphasis></emphasis><esc>bba
 imap ,es <emphasis role="strong"></emphasis><esc>bbla
 
+"Special characters
+imap ,> &gt;
+imap ,< &lt;
+
 " links
 imap ,u <ulink url=""></ulink><esc>bb3la
 imap ,lk <link linkend=""></link><esc>bb3la
