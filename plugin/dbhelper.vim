@@ -1,6 +1,6 @@
 " Vivek Venugopalan's .vimrc tweaks for use with DocBook 4.1.  This has been
 " revised from Dan York's .vimrc 
-" Revised: June 21, 2001
+" Revised: July 23, 2001
 " Used with vim 5.7
 " email : vivekv@yahoo.com
 
@@ -30,13 +30,15 @@
 
 
 " header and setup info for a book
-imap ,dt <!DOCTYPE BOOK PUBLIC "-//OASIS//DTD DocBook V4.1//EN">
+imap ,dtbk <!DOCTYPE BOOK PUBLIC "-//OASIS//DTD DocBook V4.1//EN">
 imap ,bk <book><CR><bookinfo><CR><title></title><CR><author><CR><firstname></firstname><CR><surname></surname><CR></author><CR><address><email></email></address><CR><copyright><CR><year></year><CR><holder></holder><CR></copyright><CR><revhistory><CR></revhistory><CR></bookinfo><CR><CR></book><esc>12k$bba
 "Internal subset declaration
 imap ,et <!ENTITY TODO-key "TODO-value"><CR>
 imap ,rev <revision><CR><revnumber></revnumber><CR><date></date><CR><authorinitials></authorinitials><CR><revremark></revremark><CR></revision><esc>4k$bba
 
 "header and setup info for an article.
+imap ,dtart <!DOCTYPE ARTICLE PUBLIC "-//OASIS//DTD DocBook V4.1//EN">
+imap ,art <article><CR><title></title><CR><CR><artheader><CR><CR><author><CR><firstname></firstname><CR><surname></surname><CR><affiliation><CR><address><email></email></address></affiliation><CR></author><CR><CR><revhistory><CR></revhistory><CR><CR></artheader><CR><abstract><CR><indexterm><CR><primary></primary><CR></indexterm><CR><para><CR><para><CR></abstract><CR><CR></article><esc>16k$bba
 
 "Paragraph formatting
 imap ,p <para><CR></para><esc>k$a
@@ -83,6 +85,15 @@ imap ,co <!--  --><esc>bhi
 imap ,qt <blockquote><CR><attribution></attribution><CR><literallayout><CR></literallayout><CR></blockquote>
 imap ,ge <glossentry><glossterm></glossterm><CR><glossdef><CR><para><CR></para><CR></glossdef><CR></glossentry><esc>kkkkk$bba
 
+" examples
+imap ,ex <example id=""><CR><title></title><CR></example><ESC>$kkba
+
+"For preparing FAQs
+imap ,faq <article class=faq><CR><title>Frequently asked questions</title><CR><CR><articleinfo><CR><CR><author><CR><firstname></firstname><CR><surname></surname><CR><affiliation><CR><address><email></email></address></affiliation><CR></author><CR><CR><revhistory><CR></revhistory><CR><CR></articleinfo><CR><abstract><CR><indexterm><CR><primary></primary><CR></indexterm><CR><para><CR><para><CR></abstract><CR><CR><qandaset><CR><qandadiv><CR><title></title><CR><qandaentry><CR><question><CR><para></para><CR></question><CR><answer><CR><para></para><CR></answer><CR></qandaentry><CR><qandadiv><CR><qandaset><CR><CR></article><esc>16k$bba
+
+imap ,qd <qandaset><CR><qandadiv><CR><title></title><CR><qandaentry><CR><question><CR><para></para><CR></question><CR><answer><CR><para></para><CR></answer><CR></qandaentry><CR><qandadiv><esc>9k$bba
+
+imap ,qa <qandaentry><CR><question><CR><para></para><CR></question><CR><answer><CR><para></para><CR></answer><CR></qandaentry><esc>5k$bba
 "Setup for building docbook sgml from within vim.  The idea is to use a script
 "that will run openjade and capture the output in a file called "jade.err".
 "This file is then made to look like the error file to vim with the error
